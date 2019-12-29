@@ -39,11 +39,20 @@ const App = props => {
     })
   }
 
+  // NOTE: これには制限がある。CSSで出来ることを全て出来るわけではない。
+  const style = {
+    backgroundColor: 'white',
+    font: 'inherit',
+    border: '1x solid blue',
+    padding: '8px',
+    cursor: 'pointer'
+  }
+
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
       <p>This is really working!</p>
-      <button onClick={() => switchNameHandler('Maximilian')}>Switch Name</button> {/* 効率は良くないためおすすめは出来ない */}
+      <button style={style} onClick={() => switchNameHandler('Maximilian')}>Switch Name</button> {/* 効率は良くないためおすすめは出来ない */}
       <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
       <Person name={personsState.persons[1].name} age={personsState.persons[1].age} click={switchNameHandler.bind(this, 'Max!!!')} changed={nameChangedHandler}>My Hobbies: Racing</Person>
       <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
